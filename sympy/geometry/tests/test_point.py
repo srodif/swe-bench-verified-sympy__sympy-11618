@@ -48,7 +48,7 @@ def test_point():
     assert p_2d.distance(p_3d) == sqrt(5)
     assert p_3d.distance(p_2d) == sqrt(5)
     
-    # Test 3D to 2D distance
+    # Test 3D to 2D distance.
     p_3d_2 = Point(1, 2, 3)
     p_2d_2 = Point(4, 6)
     assert p_3d_2.distance(p_2d_2) == sqrt(34)

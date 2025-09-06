@@ -42,6 +42,17 @@ def test_point():
     assert Point.distance(p1, p1) == 0
     assert Point.distance(p3, p2) == sqrt(p2.x**2 + p2.y**2)
 
+    # Test mixed dimension distance calculation (issue #11618)
+    p_2d = Point(2, 0)
+    p_3d = Point(1, 0, 2)
+    assert p_2d.distance(p_3d) == sqrt(5)
+    assert p_3d.distance(p_2d) == sqrt(5)
+    
+    # Test 3D to 2D distance.
+    p_3d_2 = Point(1, 2, 3)
+    p_2d_2 = Point(4, 6)
+    assert p_3d_2.distance(p_2d_2) == sqrt(34)
+
     assert Point.taxicab_distance(p4, p3) == 2
 
     p1_1 = Point(x1, x1)
